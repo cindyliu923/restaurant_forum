@@ -15,8 +15,8 @@ def create
       redirect_to admin_restaurants_path
       flash[:notice] = "restaurant was successfully created"
     else
-      render :new
       flash[:alert] = "restaurant was failed to create"
+      render :new 
     end
   end
 
