@@ -1,15 +1,16 @@
 class Admin::RestaurantsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin
-def index
-  @restaurants = Restaurant.all
-end
+  
+  def index
+    @restaurants = Restaurant.all
+  end
 
-def new
+  def new
     @restaurant = Restaurant.new
-end
+  end
 
-def create
+  def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       redirect_to admin_restaurants_path
@@ -18,6 +19,10 @@ def create
       flash[:alert] = "restaurant was failed to create"
       render :new 
     end
+  end
+
+  def show
+    @restaurant = Restaurant.find(params[:id])
   end
 
   private
