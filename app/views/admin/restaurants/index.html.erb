@@ -10,9 +10,9 @@
         <%= link_to 'New Restaurant', new_admin_restaurant_path, class: "btn btn-primary" %>
       </div>
        <br>
-      <table class="table table-striped table-bordered">
+      <table class="table table-hover table-bordered">
         <thead>
-          <tr>
+          <tr class="active">
             <th>Id</th>
             <th>Name</th>
             <th>Detail</th>
@@ -20,7 +20,7 @@
         </thead>
         <tbody>
           <% @restaurants.each do |restaurant| %>
-          <tr>
+          <tr class="warning">
             <th scope="row"><%= restaurant.id %></th>
             <td><%= restaurant.name %></td>
             <td>
