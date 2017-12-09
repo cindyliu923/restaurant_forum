@@ -11,13 +11,16 @@
         <%= link_to 'Category', admin_categories_path, class: "btn btn-default btn-xs" %>
       </div>
         <br>
-        
+
         <div class="form-inline" >
           <%= form_for [:admin, @category] do |f| %>
           <div class="form-group">
             <%= f.text_field :name, placeholder: "Category Name",  class: "form-control" %>
           </div>
             <%= f.submit class: "btn btn-primary" %>
+              <% if @category.errors.any? %>
+                <%= @category.errors.full_messages.to_sentence %>
+              <% end %>
           <% end %>
         </div>
           <br>
