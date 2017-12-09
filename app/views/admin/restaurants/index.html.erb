@@ -1,15 +1,21 @@
 <div class="container">
  
   <h1>餐廳後台</h1>
- 
+
     <div class="row">
  
     <div class="col-md-12">
- 
+
+      <div>
+        <%= link_to 'Restaurant', admin_restaurants_path, class: "btn btn-default btn-xs" %> |
+        <%= link_to 'Category', admin_categories_path, class: "btn btn-default btn-xs" %>
+      </div>
+        <br>
+
       <div>
         <%= link_to 'New Restaurant', new_admin_restaurant_path, class: "btn btn-primary" %>
       </div>
-       <br>
+        <br>
       <table class="table table-hover table-bordered">
         <thead>
           <tr class="active">
