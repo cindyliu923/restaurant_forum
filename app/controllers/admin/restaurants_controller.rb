@@ -1,6 +1,6 @@
 class Admin::RestaurantsController < Admin::BaseController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @restaurants = Restaurant.page(params[:page]).per(10)
   end
@@ -35,7 +35,6 @@ class Admin::RestaurantsController < Admin::BaseController
     redirect_to admin_restaurants_path
     flash[:alert] = "restaurant was deleted"
   end
-
 
   private
 
