@@ -1,4 +1,21 @@
 body {
   background-image: image-url("restaurant.jpg");
-  background-size: 100% auto ;
+  background-size: cover;
+}
+
+.restaurant-item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 20px;
+  background-color: #FFFFE0;
+}
+
+.restaurant-item img {
+  max-height: 180px;
+  width: 100%;
+}
+
+.restaurant-item .caption {
+  padding: 10px;
 }
