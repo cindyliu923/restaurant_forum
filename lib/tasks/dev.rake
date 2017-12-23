@@ -8,6 +8,7 @@ namespace :dev do
         tel: FFaker::PhoneNumber.short_phone_number,
         address: FFaker::Address.street_address,
         description: FFaker::Lorem.paragraph,
+        remote_image_url: "http://lorempixel.com/335/180/food/",
         category: Category.all.sample
       )
     end
