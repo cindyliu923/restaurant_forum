@@ -8,7 +8,7 @@ namespace :dev do
         tel: FFaker::PhoneNumber.short_phone_number,
         address: FFaker::Address.street_address,
         description: FFaker::Lorem.paragraph,
-        remote_image_url: "http://lorempixel.com/335/180/food/",
+# remote_image_url: "http://lorempixel.com/335/180/food/",因為設定default image就不用先上傳照片 
         category: Category.all.sample
       )
     end
