@@ -35,9 +35,14 @@ end
   end
 
   def destroy
-    @category.destroy
-    flash[:alert] = "category was successfully deleted"
-    redirect_to admin_categories_path
+    if @category.destroy == false
+      flash[:alert] = "Cannot delete category because dependent restaurants exist"
+      redirect_to admin_categories_path
+    else
+      @category.destroy
+      flash[:alert] = "category was successfully deleted"
+      redirect_to admin_categories_path
+    end
   end
 
 private
