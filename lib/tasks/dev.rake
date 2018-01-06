@@ -39,4 +39,14 @@ namespace :dev do
     puts "have created fake comments"
     puts "now you have #{Comment.count} comment data"
   end
+
+  task fake_ranking: :environment do
+    200.times do
+      Favorite.create!(user: User.all.sample, restaurant: Restaurant.all.sample)
+      Like.create!(user: User.all.sample, restaurant: Restaurant.all.sample)
+    end
+    puts "have created #{Favorite.count} fake favorites"    
+    puts "have created #{Like.count} fake likes"
+  end
+
 end
