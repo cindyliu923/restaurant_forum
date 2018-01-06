@@ -17,7 +17,7 @@
     <div class="col-md-10 col-md-offset-1">
 
       <div class="page-header">
-        <h1>Top 10 人氣餐廳 <small>(收藏數最高)</small></h1>
+        <h1>Top 10 人氣餐廳</h1>
       </div>
 
 
@@ -34,6 +34,7 @@
             <h4>
               <%= restaurant.name %>
               <span class="label label-default">收藏數：<%= restaurant.favorites_count %></span>
+              <span class="label label-default"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span><%= restaurant.likes_count %></span>   
             </h4>
             <p><%= truncate(restaurant.description, length: 200) %></p>
             <div>
