@@ -13,6 +13,13 @@
       <div class="col-md-9 col-sm-8">
         <h2><%= @user.name %></h2>
         <p><strong><%= @user.email %></strong></p>
+        <!-- inline & unstyled 的 list -->
+        <ul class="list-unstyled list-inline">
+          <li><strong><%= @commented_restaurants.count %></strong> 已評論餐廳</li> 
+          <li><strong><%= @favorited_restaurants.count %></strong> 收藏的餐廳</li> 
+          <li><strong><%= @followings.count %></strong> followings</li>
+          <li><strong><%= @followers.count %></strong> followers</li>
+        </ul>
         <div><%= simple_format @user.intro %></div>
         <% if @user.email == current_user.email %>
           <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-primary" %>
@@ -24,26 +31,74 @@
 
     <br>
 
-
-    <div class="panel panel-warning">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= @commented_restaurants.count %>已評論餐廳</h3>
+    <div class="col-md-4">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @followings.count %> followings</h3>
+        </div>
+          <ul class="list-group">
+            <% @followings.each do |user| %>
+              <li class="list-group-item">
+                <%= link_to(user) do %>
+                  <%= image_tag user.avatar, height: 30, width: 30, class: "img-circle" %>
+                  <%= user.name %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
       </div>
-        <div class="panel-body">
-          <% @commented_restaurants.each do |restaurant| %>
-            <div class="my-restaurant">
-              <%= link_to(restaurant) do %>
-                <%= image_tag restaurant.image, class: "img-rounded" %>
-                <h5><%= restaurant.name %></h5>
-              <% end %>
-            </div>
-          <% end %>
+
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @followers.count %> followers</h3>
+        </div>
+          <ul class="list-group">
+            <% @followers.each do |user| %>
+              <li class="list-group-item">
+                <%= link_to(user) do %>
+                  <%= image_tag user.avatar, height: 30, width: 30, class: "img-circle" %>
+                  <%= user.name %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
       </div>
     </div>
 
+    <div class="col-md-8">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @commented_restaurants.count %>已評論餐廳</h3>
+        </div>
+          <div class="panel-body">
+            <% @commented_restaurants.each do |restaurant| %>
+              <div class="my-restaurant">
+                <%= link_to(restaurant) do %>
+                  <%= image_tag restaurant.image, class: "img-rounded" %>
+                  <h5><%= restaurant.name %></h5>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+      </div>
 
-
-
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @favorited_restaurants.count %>收藏的餐廳</h3>
+        </div>
+          <div class="panel-body">
+            <% @favorited_restaurants.each do |restaurant| %>
+              <div class="my-restaurant">
+                <%= link_to(restaurant) do %>
+                  <%= image_tag restaurant.image, class: "img-rounded" %>
+                  <h5><%= restaurant.name %></h5>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+    
     </div>
   </div>
 </div>
