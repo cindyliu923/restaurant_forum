@@ -63,6 +63,23 @@
             <% end %>
           </ul>
       </div>
+  
+
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @friendings.count %> 主動加入的好友</h3>
+        </div>
+          <ul class="list-group">
+            <% @friendings.each do |user| %>
+              <li class="list-group-item">
+                <%= link_to(user) do %>
+                  <%= image_tag user.avatar, height: 30, width: 30, class: "img-circle" %>
+                  <%= user.name %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+      </div>
     </div>
 
     <div class="col-md-8">
@@ -98,7 +115,7 @@
           </div>
       </div>
     </div>
-    
+
     </div>
   </div>
 </div>
