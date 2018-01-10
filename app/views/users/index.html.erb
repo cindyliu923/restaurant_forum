@@ -28,6 +28,7 @@
           <h4><%= user.name %></h4>
         <% end %>
         <%= render partial: "shared/follow", locals: {user: user} %>
+        <%= link_to 'Friend', friendships_path(friending_id: user), method: :post %>
       </div>
     <% end %>
 
