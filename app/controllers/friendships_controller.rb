@@ -10,4 +10,12 @@ class FriendshipsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+
+  def destroy
+    @friendship = current_user.friendships.where(friending_id: params[:id]) #取出來的是陣列
+    @friendship.destroy_all #用直接刪除陣列的方法
+    flash[:alert] = "Friendship destroyed"
+    redirect_back(fallback_location: root_path)
+  end
+
 end
