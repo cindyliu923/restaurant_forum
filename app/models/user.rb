@@ -31,4 +31,8 @@ class User < ApplicationRecord
     self.followings.include?(user)
   end
 
+  def friending?(user)
+    self.friendings.include?(user)
+  end
+
 end
