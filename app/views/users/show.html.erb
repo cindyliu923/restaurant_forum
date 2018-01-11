@@ -67,10 +67,10 @@
 
       <div class="panel panel-warning">
         <div class="panel-heading">
-          <h3 class="panel-title"><%= @friendings.count %> 主動加入的好友</h3>
+          <h3 class="panel-title"><%= @friends.count %> 位我加入的好友</h3>
         </div>
           <ul class="list-group">
-            <% @friendings.each do |user| %>
+            <% @friends.each do |user| %>
               <li class="list-group-item">
                 <%= link_to(user) do %>
                   <%= image_tag user.avatar, height: 30, width: 30, class: "img-circle" %>

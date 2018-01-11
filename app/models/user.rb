@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_many :followers, through: :inverse_followships, source: :user
 
   has_many :friendships, dependent: :destroy
-  has_many :friendings, through: :friendships
+  has_many :friends, through: :friendships, source: :friending
 
   def admin?
     self.role == "admin"
@@ -31,8 +31,8 @@ class User < ApplicationRecord
     self.followings.include?(user)
   end
 
-  def friending?(user)
-    self.friendings.include?(user)
+  def friend?(user)
+    self.friends.include?(user)
   end
 
 end
