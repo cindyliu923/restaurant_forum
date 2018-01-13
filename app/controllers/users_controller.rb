@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @followings = @user.followings
     @followers = @user.followers
     @friends = @user.friends
+    @fans = @user.fans
   end
 
   def edit

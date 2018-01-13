@@ -19,6 +19,8 @@
           <li><strong><%= @favorited_restaurants.count %></strong> 收藏的餐廳</li> 
           <li><strong><%= @followings.count %></strong> followings</li>
           <li><strong><%= @followers.count %></strong> followers</li>
+          <li><strong><%= @friends.count %></strong> 我加入的好友</li>
+          <li><strong><%= @fans.count %></strong> 加入我的好友</li>          
         </ul>
         <div><%= simple_format @user.intro %></div>
         <% if @user.email == current_user.email %>
@@ -71,6 +73,22 @@
         </div>
           <ul class="list-group">
             <% @friends.each do |user| %>
+              <li class="list-group-item">
+                <%= link_to(user) do %>
+                  <%= image_tag user.avatar, height: 30, width: 30, class: "img-circle" %>
+                  <%= user.name %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+      </div>
+
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @fans.count %> 位加入我的好友</h3>
+        </div>
+          <ul class="list-group">
+            <% @fans.each do |user| %>
               <li class="list-group-item">
                 <%= link_to(user) do %>
                   <%= image_tag user.avatar, height: 30, width: 30, class: "img-circle" %>
