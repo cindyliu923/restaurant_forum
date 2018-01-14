@@ -38,4 +38,9 @@ class User < ApplicationRecord
     self.friends.include?(user)
   end
 
+  def all_friends
+    self.fans.all.uniq
+    self.friends.all.uniq
+  end
+
 end
