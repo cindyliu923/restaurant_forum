@@ -12,6 +12,8 @@
           <%= image_tag friend.avatar, class: "img-rounded" %>
           <h4><%= friend.name %></h4>
         <% end %>
+        <%= render partial: "shared/follow", locals: {user: friend} %>
+        <%= render partial: "shared/friend", locals: {user: friend} %>
       </div>
     <% end %>
 
