@@ -69,13 +69,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "https://restaurant-forum-by-cindy.herokuapp.com"}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "heroku.com",
-    authentication: "plain",
-    user_name: ENV["GMAIL_USERNAME"], #你的信箱
-    password: ENV["GMAIL_PASSWORD"], #信箱密碼 
-    enable_starttls_auto: true 
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "heroku.com",
+    :authentication => :plain,
+    :user_name => ENV["GMAIL_USERNAME"], #你的信箱
+    :password => ENV["GMAIL_PASSWORD"], #信箱密碼 
+    :enable_starttls_auto => true 
   }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
